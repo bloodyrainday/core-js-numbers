@@ -201,10 +201,17 @@ function roundToPowerOfTen(num, pow) {
  *   17 => true
  */
 function isPrime(n) {
-  if (n <= 1 || n % 2 === 0 || n % 3 === 0) {
-    return false;
+  if (n <= 1) return false;
+  for (let i = 2; i < n; i += 1) {
+    if (n !== i && n % i === 0) return false;
   }
   return true;
+  // if (n === 2) return true;
+  // if (n === 3) return true;
+  // if (n <= 1 || n % 2 === 0 || n % 3 === 0) {
+  //   return false;
+  // }
+  // return true;
 }
 
 /**
@@ -299,11 +306,11 @@ function getSumToN(n) {
  *   5   => 5  // 5
  */
 function getSumOfDigits(num) {
-  const str = toString(num);
+  const str = num.toString();
   let sum = 0;
 
   const splitted = str.split('');
-  for (let i = 0; i < splitted; i += 1) {
+  for (let i = 0; i < splitted.length; i += 1) {
     sum += +splitted[i];
   }
   return sum;
@@ -321,10 +328,8 @@ function getSumOfDigits(num) {
  *   15  => false
  */
 function isPowerOfTwo(num) {
-  if (num % 2 === 0) {
-    return true;
-  }
-  return false;
+  const res = Math.log2(num);
+  return Number.isInteger(res);
 }
 
 /**
@@ -635,12 +640,10 @@ function getHypotenuse(a, b) {
  */
 function getCountOfOddNumbers(number) {
   let count = 0;
-  let i = 0;
-  while (i <= number) {
+  for (let i = 0; i <= Math.abs(number); i += 1) {
     if (i % 2 !== 0) {
       count += 1;
     }
-    i += 1;
   }
   return count;
 }
