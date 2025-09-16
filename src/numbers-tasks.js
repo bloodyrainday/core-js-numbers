@@ -205,12 +205,6 @@ function isPrime(n) {
     if (n !== i && n % i === 0) return false;
   }
   return true;
-  // if (n === 2) return true;
-  // if (n === 3) return true;
-  // if (n <= 1 || n % 2 === 0 || n % 3 === 0) {
-  //   return false;
-  // }
-  // return true;
 }
 
 /**
